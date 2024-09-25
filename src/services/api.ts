@@ -5,10 +5,19 @@ export const fetchRepairs = async () => {
   return (await axiosInstance.get<RepairType[]>("/repairs")).data;
 };
 
-// export const loginUser = async (credentials: {
-//   email: string;
-//   password: string;
-// }) => {
-//   const response = await axiosInstance.post("/auth/login", credentials);
-//   return response.data;
+export const loginUser = async (credentials: {
+  email: string;
+  password: string;
+}) => {
+  return (await axiosInstance.post("/auth/login", credentials)).data;
+};
+
+// export const fetchUser = async (token: string | null) => {
+//   return (
+//     await axiosInstance.get("", {
+//       headers: {
+//         Authorization: `Bearer ${token}`,
+//       },
+//     })
+//   ).data;
 // };

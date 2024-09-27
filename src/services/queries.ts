@@ -1,8 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import {
-  fetchRepairs,
-  // , fetchUser
-} from "./api";
+import { fetchRepairs, fetchUser } from "./api";
 
 export function useRepairs() {
   return useQuery({
@@ -13,10 +10,9 @@ export function useRepairs() {
   });
 }
 
-// export function useFetchUser(token: string | null) {
-//   return useQuery({
-//     enabled: !!token, // will only run if there is token
-//     queryKey: ["user"],
-//     queryFn: () => fetchUser(token!),
-//   });
-// }
+export function useFetchUser(email: string) {
+  return useQuery({
+    queryKey: ["user"],
+    queryFn: () => fetchUser(email),
+  });
+}

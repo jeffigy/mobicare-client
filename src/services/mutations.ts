@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { loginUser } from "./api";
+import { loginUser, logOutUser } from "./api";
 import { useStore } from "@/store/store";
 import { useRouter } from "next/navigation";
 
@@ -12,6 +12,19 @@ export function useLoginMutation() {
     onSuccess: (data) => {
       login(data.accessToken);
       router.push("/dashboard/home");
+    },
+  });
+}
+
+export function useLogoutMutation() {
+  const router = useRouter();
+  const { clearCredentials } = useStore();
+
+  return useMutation({
+    mutationFn: () => logOutUser(),
+    onSuccess: () => {
+      clearCredentials();
+      router.replace("/");
     },
   });
 }

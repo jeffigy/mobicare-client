@@ -13,7 +13,8 @@ const CheckEmail = () => {
         </p>
 
         <p className="text-lg text-base-content">
-          If you don't see the email, please check your spam or junk folder.
+          If you don&apos;t see the email, please check your spam or junk
+          folder.
         </p>
 
         <Link href="/" className="btn btn-primary">

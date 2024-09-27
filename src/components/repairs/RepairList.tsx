@@ -3,6 +3,7 @@ import { useRepairs } from "@/services/queries";
 import React from "react";
 import Repair from "./Repair";
 import { RepairType } from "@/types/Repair";
+import { AxiosApiResponse } from "@/types/ServerResponse";
 
 const RepairList = () => {
   const { data, isLoading, isError, error } = useRepairs();
@@ -10,7 +11,7 @@ const RepairList = () => {
     return <p>loading...</p>;
   }
   if (isError) {
-    return <p>{error.message}</p>;
+    return <p>{(error as AxiosApiResponse).response?.data.message}</p>;
   }
   return (
     <>

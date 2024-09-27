@@ -5,12 +5,12 @@ import { useRouter } from "next/navigation";
 
 export function useLoginMutation() {
   const router = useRouter();
-  const { login } = useStore();
+  const { setCredentials } = useStore();
   return useMutation({
     mutationFn: (credentials: { email: string; password: string }) =>
       loginUser(credentials),
     onSuccess: (data) => {
-      login(data.accessToken);
+      setCredentials(data.accessToken);
       router.push("/dashboard/home");
     },
   });

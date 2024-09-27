@@ -1,3 +1,4 @@
+import FetchUser from "@/components/auth/FetchUser";
 import { Metadata } from "next";
 import React from "react";
 
@@ -6,7 +7,11 @@ export const metadata: Metadata = {
 };
 
 const Page = () => {
-  return <div>home</div>;
+  return (
+    <div>
+      <FetchUser />
+    </div>
+  );
 };
 
 export default Page;

@@ -5,8 +5,7 @@ export function useRepairs() {
   return useQuery({
     queryKey: ["repairs"],
     queryFn: () => fetchRepairs(),
-    refetchOnWindowFocus: false,
-    refetchOnMount: false,
+    refetchInterval: 5000,
   });
 }
 

@@ -5,12 +5,14 @@ type AuthState = {
   isAuthenticated: boolean;
   token: string | null;
   user: UserType | null;
+  persist: boolean;
 };
 
 type ActionType = {
   setCredentials: (token: string) => void;
   clearCredentials: () => void;
   setUser: (user: UserType | null) => void;
+  setPersist: (persist: boolean) => void;
 };
 
 export type AuthSlice = AuthState & ActionType;
@@ -19,6 +21,7 @@ const initialState: AuthState = {
   isAuthenticated: false,
   token: null,
   user: null,
+  persist: true,
 };
 
 export const createAuthSlice: StateCreator<
@@ -38,5 +41,9 @@ export const createAuthSlice: StateCreator<
     set({
       isAuthenticated: false,
       token: null,
+    }),
+  setPersist: (persist) =>
+    set({
+      persist,
     }),
 });

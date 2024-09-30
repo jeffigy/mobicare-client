@@ -26,3 +26,7 @@ export const fetchUser = async (email: string) => {
 export const logOutUser = async () => {
   return (await axiosInstance.post("/auth/logout")).data;
 };
+
+export const refreshUser = async () => {
+  return (await axiosInstance.get("/auth/refresh")).data;
+};

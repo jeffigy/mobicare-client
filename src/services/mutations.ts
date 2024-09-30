@@ -1,5 +1,7 @@
+"use client";
+
 import { useMutation } from "@tanstack/react-query";
-import { loginUser, logOutUser } from "./api";
+import { loginUser, logOutUser, refreshUser } from "./api";
 import { useStore } from "@/store/store";
 import { useRouter } from "next/navigation";
 
@@ -25,6 +27,16 @@ export function useLogoutMutation() {
     onSuccess: () => {
       clearCredentials();
       router.replace("/");
+    },
+  });
+}
+
+export function useRefreshMutation() {
+  const { setCredentials } = useStore();
+  return useMutation({
+    mutationFn: () => refreshUser(),
+    onSuccess: (data) => {
+      setCredentials(data.accessToken);
     },
   });
 }

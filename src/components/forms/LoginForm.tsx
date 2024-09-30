@@ -1,6 +1,7 @@
 "use client";
 
 import { useLoginMutation } from "@/services/mutations";
+import { useStore } from "@/store/store";
 import { AxiosApiResponse } from "@/types/ServerResponse";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -9,7 +10,7 @@ const LoginForm = () => {
   const { isPending, isError, error, mutate } = useLoginMutation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [persist, setPersist] = useState(false);
+  const { persist, setPersist } = useStore();
 
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

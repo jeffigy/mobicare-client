@@ -26,7 +26,7 @@ axiosInstance.interceptors.response.use(
   (response) => response,
   async (error) => {
     const originalRequest = error.config;
-    const { token, setCredentials, clearCredentials } = useStore.getState();
+    const { token, setCredentials, clearCredentials } = useStore();
 
     if (error.response?.status === 403 && !originalRequest._retry) {
       originalRequest._retry = true;

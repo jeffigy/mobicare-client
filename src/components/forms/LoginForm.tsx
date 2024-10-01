@@ -1,7 +1,7 @@
 "use client";
 
+import usePersist from "@/hooks/userPersist";
 import { useLoginMutation } from "@/services/mutations";
-import { useStore } from "@/store/store";
 import { AxiosApiResponse } from "@/types/ServerResponse";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -10,7 +10,7 @@ const LoginForm = () => {
   const { isPending, isError, error, mutate } = useLoginMutation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { persist, setPersist } = useStore();
+  const [persist, setPersist] = usePersist();
 
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -59,7 +59,6 @@ const LoginForm = () => {
             className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
             onChange={() => setPersist(!persist)}
             checked={persist}
-            disabled={!email || !password}
           />
           <label htmlFor="" className="ml-3 block text-sm">
             Remember me

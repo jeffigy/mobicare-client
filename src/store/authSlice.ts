@@ -6,6 +6,7 @@ type AuthState = {
   token: string | null;
   user: UserType | null;
   persist: boolean;
+  hasHydrated: boolean;
 };
 
 type ActionType = {
@@ -13,6 +14,7 @@ type ActionType = {
   clearCredentials: () => void;
   setUser: (user: UserType | null) => void;
   setPersist: (persist: boolean) => void;
+  setHydrated: (state: boolean) => void;
 };
 
 export type AuthSlice = AuthState & ActionType;
@@ -22,6 +24,7 @@ const initialState: AuthState = {
   token: null,
   user: null,
   persist: true,
+  hasHydrated: false,
 };
 
 export const createAuthSlice: StateCreator<
@@ -46,4 +49,5 @@ export const createAuthSlice: StateCreator<
     set({
       persist,
     }),
+  setHydrated: (state) => set({ hasHydrated: state }),
 });

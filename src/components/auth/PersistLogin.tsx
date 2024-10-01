@@ -1,14 +1,15 @@
 "use client";
 
+import usePersist from "@/hooks/userPersist";
 import { useRefreshMutation } from "@/services/mutations";
 import { useStore } from "@/store/store";
-import { AxiosApiResponse } from "@/types/ServerResponse";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 
 const PersistLogin = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
-  const { token, persist } = useStore();
+  const [persist] = usePersist();
+  const { token } = useStore();
   const effectRan = useRef(false);
 
   const [trueSuccess, setTrueSuccess] = useState(false);
@@ -43,7 +44,6 @@ const PersistLogin = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   if (!persist) {
-    console.log(persist);
     console.log("No persistence, proceeding.");
     return <>{children}</>;
   }
@@ -57,7 +57,7 @@ const PersistLogin = ({ children }: { children: React.ReactNode }) => {
     console.error("Error refreshing token:", error);
     return (
       <p className="errmsg">
-        {`${(error as AxiosApiResponse)?.response?.data.message} - `}
+        {`${error.message} - `}
         <button onClick={() => router.replace("/")}>Please login again</button>.
       </p>
     );

@@ -6,16 +6,10 @@ import { Store } from "@/types/store";
 
 export const useStore = create<Store>()(
   devtools(
-    persist(
-      subscribeWithSelector(
-        immer((...a) => ({
-          ...createAuthSlice(...a),
-        })),
-      ),
-      {
-        name: "persist",
-        partialize: (state) => ({ persist: state.persist }),
-      },
+    subscribeWithSelector(
+      immer((...a) => ({
+        ...createAuthSlice(...a),
+      })),
     ),
   ),
 );

@@ -1,6 +1,6 @@
 "use client";
 
-import usePersist from "@/hooks/userPersist";
+import usePersist from "@/hooks/usePersist";
 import { useRefreshMutation } from "@/services/mutations";
 import { useStore } from "@/store/store";
 import { useRouter } from "next/navigation";

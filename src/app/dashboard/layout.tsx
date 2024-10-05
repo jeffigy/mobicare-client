@@ -2,7 +2,7 @@
 
 import PersistLogin from "@/components/auth/PersistLogin";
 import Prefetch from "@/components/auth/Prefetch";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/ui/Navbar";
 import React from "react";
 
 type layoutProps = {
@@ -15,7 +15,7 @@ const layout: React.FC<layoutProps> = ({ children }) => {
       <Prefetch>
         <div className="flex min-h-screen flex-col">
           <Navbar />
-          {children}
+          <div className="flex p-10"> {children}</div>
         </div>
       </Prefetch>
     </PersistLogin>

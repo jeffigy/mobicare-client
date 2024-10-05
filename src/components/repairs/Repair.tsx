@@ -1,17 +1,28 @@
+"use client";
+
+import useFormattedDate from "@/hooks/useFormattedDate";
 import { RepairType } from "@/types/Repair";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 type RepairProps = {
-  repair: RepairType;
+  task: RepairType;
 };
 
-const Repair: React.FC<RepairProps> = ({ repair }) => {
+const Repair: React.FC<RepairProps> = ({ task }) => {
+  const router = useRouter();
+  const formattedDate = useFormattedDate(task.createdAt);
   return (
-    <div className="w-full max-w-md space-y-3 rounded-md border p-5">
-      <p>{repair.customer.name}</p>
-      <p>{repair.customer.email}</p>
-      <p>{repair.device.brand}</p>
-    </div>
+    <tr
+      className="hover:cursor-pointer hover:bg-base-200"
+      key={task.id}
+      onClick={() => router.push(`/dashboard/tasks/${task.id}`)}
+    >
+      <td>{task.customer.name}</td>
+      <td>{task.device.model}</td>
+      <td>{task.status}</td>
+      <td>{formattedDate}</td>
+    </tr>
   );
 };
 export default Repair;

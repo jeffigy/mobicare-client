@@ -27,7 +27,9 @@ const RepairList = () => {
               <th>Status</th>
             </tr>
           </thead>
-          <tbody>{data?.map((task) => <Repair task={task} />)}</tbody>
+          <tbody>
+            {data?.map((task) => <Repair key={task.id} task={task} />)}
+          </tbody>
         </table>
       </div>
     </div>

@@ -15,7 +15,6 @@ const Repair: React.FC<RepairProps> = ({ task }) => {
   return (
     <tr
       className="hover:cursor-pointer hover:bg-base-200"
-      key={task.id}
       onClick={() => router.push(`/dashboard/tasks/${task.id}`)}
     >
       <td>{task.customer.name}</td>

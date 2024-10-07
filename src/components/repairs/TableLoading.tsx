@@ -20,7 +20,7 @@ const TableLoading = () => {
             </tr>
           </thead>
           <tbody>
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((task, index) => (
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_, index) => (
               <tr
                 className="hover:cursor-pointer hover:bg-base-200"
                 key={index}

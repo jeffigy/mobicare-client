@@ -6,20 +6,20 @@ import { useRouter } from "next/navigation";
 import React from "react";
 
 type RepairProps = {
-  task: RepairType;
+  repair: RepairType;
 };
 
-const Repair: React.FC<RepairProps> = ({ task }) => {
+const Repair: React.FC<RepairProps> = ({ repair }) => {
   const router = useRouter();
-  const formattedDate = useFormattedDate(task.createdAt);
+  const formattedDate = useFormattedDate(repair.createdAt);
   return (
     <tr
       className="hover:cursor-pointer hover:bg-base-200"
-      onClick={() => router.push(`/dashboard/tasks/${task.id}`)}
+      onClick={() => router.push(`/dashboard/repairs/${repair.id}`)}
     >
-      <td>{task.customer.name}</td>
-      <td>{task.device.model}</td>
-      <td>{task.status}</td>
+      <td>{repair.customer.name}</td>
+      <td>{repair.device.model}</td>
+      <td>{repair.status}</td>
       <td>{formattedDate}</td>
     </tr>
   );

@@ -40,10 +40,7 @@ const useAuth = () => {
     }
   }, [token, setUser]);
 
-  // Determine the status based on loading and error state
-  const status = isLoading ? "loading..." : isError ? error.message : null;
-
-  return { status, user };
+  return { user, isError, error, isLoading };
 };
 
 export default useAuth;

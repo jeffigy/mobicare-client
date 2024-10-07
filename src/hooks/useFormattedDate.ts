@@ -1,7 +1,7 @@
 "use client";
 import { useMemo } from "react";
 
-const useFormattedDate = (dateString: string) => {
+const useFormattedDate = (dateString: string | undefined) => {
   const formattedDate = useMemo(() => {
     if (!dateString) return "";
     const date = new Date(dateString);

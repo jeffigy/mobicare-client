@@ -3,13 +3,13 @@
 import { useRepairs } from "@/services/queries";
 import Repair from "./Repair";
 import TableLoading from "./TableLoading";
-import ErrorAlert from "../ui/Alert";
+import Alert from "../ui/Alert";
 
 const RepairList = () => {
   const { data, isLoading, isError, error } = useRepairs();
 
   if (isError) {
-    return <ErrorAlert error={error} />;
+    return <Alert type="error" message={error.message} />;
   }
 
   if (isLoading) {
@@ -25,10 +25,11 @@ const RepairList = () => {
               <th>Customer Name</th>
               <th>Device</th>
               <th>Status</th>
+              <th>Date created</th>
             </tr>
           </thead>
           <tbody>
-            {data?.map((task) => <Repair key={task.id} task={task} />)}
+            {data?.map((repair) => <Repair key={repair.id} repair={repair} />)}
           </tbody>
         </table>
       </div>

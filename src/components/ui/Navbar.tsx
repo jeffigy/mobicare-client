@@ -19,8 +19,8 @@ const navLinks = [
   { icon: <House />, href: "/dashboard/home", name: "Home" },
   {
     icon: <ClipboardCheck />,
-    href: "/dashboard/tasks",
-    name: "Tasks",
+    href: "/dashboard/repairs",
+    name: "Repairs",
   },
   { icon: <Users />, href: "/dashboard/users", name: "Users" },
   {
@@ -45,7 +45,7 @@ const Navbar = () => {
 };
 
 const DesktopNav = () => {
-  const { user } = useAuth();
+  const { user, isLoading } = useAuth();
   const pathname = usePathname();
   const { isPending, mutate: logout } = useLogoutMutation();
 
@@ -63,7 +63,11 @@ const DesktopNav = () => {
       ))}
       <div className="dropdown dropdown-end">
         <div tabIndex={0} role="button" className="btn rounded-full">
-          {user?.email}
+          {isLoading ? (
+            <div className="skeleton h-4 w-32"></div>
+          ) : (
+            <>{user?.email}</>
+          )}
           <ChevronDown />
         </div>
         <ul
@@ -88,10 +92,11 @@ const DesktopNav = () => {
 };
 
 const MobileNav = () => {
-  const { user } = useAuth();
+  const { user, isLoading } = useAuth();
   const pathname = usePathname();
   const { isPending, mutate: logout } = useLogoutMutation();
   const router = useRouter();
+
   return (
     <div className="flex justify-end md:hidden">
       <div className="drawer drawer-end z-10">
@@ -119,7 +124,11 @@ const MobileNav = () => {
                   className="btn btn-active"
                   onClick={() => router.push(navLinks[3].href)}
                 >
-                  {user?.email}
+                  {isLoading ? (
+                    <div className="skeleton h-4 w-full"></div>
+                  ) : (
+                    user?.email
+                  )}
                 </label>
               </li>
             </div>

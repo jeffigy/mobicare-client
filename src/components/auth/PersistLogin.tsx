@@ -3,6 +3,7 @@
 import usePersist from "@/hooks/usePersist";
 import { useRefreshMutation } from "@/services/mutations";
 import { useStore } from "@/store/store";
+import { AxiosApiResponse } from "@/types/ServerResponse";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -50,7 +51,11 @@ const PersistLogin = ({ children }: { children: React.ReactNode }) => {
 
   if (isPending) {
     console.log("Loading...");
-    return <p>loading...</p>;
+    return (
+      <div className="flex min-h-screen w-full items-center justify-center">
+        <span className="loading loading-ring loading-lg"></span>
+      </div>
+    );
   }
 
   if (isError) {

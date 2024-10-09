@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Provider from "@/store/provider";
+import ToastProvider from "@/components/ui/ToastProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body data-theme="night" className={`${inter.className} min-h-screen`}>
-        <Provider> {children}</Provider>
+        <Provider>
+          <ToastProvider>{children}</ToastProvider>
+        </Provider>
       </body>
     </html>
   );

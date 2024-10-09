@@ -1,21 +1,24 @@
 "use client";
 
 import usePersist from "@/hooks/usePersist";
-import { useLoginMutation } from "@/services/mutations";
+import { useLoginMutation } from "@/services/mutations/authMutations";
 import { AxiosApiResponse } from "@/types/ServerResponse";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 const LoginForm = () => {
-  const { isPending, isError, error, mutate } = useLoginMutation();
+  const { isPending, isError, error, mutateAsync } = useLoginMutation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [persist, setPersist] = usePersist();
+  const router = useRouter();
 
-  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    mutate({ email, password });
+    await mutateAsync({ email, password });
+    router.push("/dashboard/home");
   };
 
   return (

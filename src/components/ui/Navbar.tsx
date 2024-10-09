@@ -1,7 +1,7 @@
 "use client";
 
 import useAuth from "@/hooks/useAuth";
-import { useLogoutMutation } from "@/services/mutations";
+import { useLogoutMutation } from "@/services/mutations/authMutations";
 import {
   ChevronDown,
   ClipboardCheck,
@@ -32,7 +32,7 @@ const navLinks = [
 
 const Navbar = () => {
   return (
-    <div className="flex justify-center shadow-md">
+    <div className="sticky top-0 z-10 flex justify-center bg-base-100 shadow-md">
       <div className="flex h-16 w-full max-w-screen-xl items-center justify-between px-5">
         <Link href={navLinks[0].href} className="text-2xl">
           MobiCare
@@ -45,10 +45,15 @@ const Navbar = () => {
 };
 
 const DesktopNav = () => {
+  const router = useRouter();
   const { user, isLoading } = useAuth();
   const pathname = usePathname();
-  const { isPending, mutate: logout } = useLogoutMutation();
+  const { isPending, mutateAsync: logout } = useLogoutMutation();
 
+  const handleLogout = async () => {
+    await logout();
+    router.replace("/");
+  };
   return (
     <div className="hidden items-center space-x-5 md:flex">
       {navLinks.slice(0, 3).map((navlink) => (
@@ -80,7 +85,7 @@ const DesktopNav = () => {
             </Link>
           </li>
           <li>
-            <button onClick={() => logout()}>
+            <button onClick={() => handleLogout()}>
               <LogOut />
               {isPending ? "logging out..." : "logout"}
             </button>
@@ -94,12 +99,16 @@ const DesktopNav = () => {
 const MobileNav = () => {
   const { user, isLoading } = useAuth();
   const pathname = usePathname();
-  const { isPending, mutate: logout } = useLogoutMutation();
+  const { isPending, mutateAsync: logout } = useLogoutMutation();
   const router = useRouter();
 
+  const handleLogout = async () => {
+    await logout();
+    router.replace("/");
+  };
   return (
-    <div className="flex justify-end md:hidden">
-      <div className="drawer drawer-end z-10">
+    <div className="z-20 flex justify-end md:hidden">
+      <div className="drawer drawer-end">
         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
           <label
@@ -149,7 +158,7 @@ const MobileNav = () => {
             <li className="flex grow flex-col justify-end">
               <button
                 className="btn-xl btn btn-active"
-                onClick={() => logout()}
+                onClick={() => handleLogout()}
               >
                 <LogOut />
                 {isPending ? "logging out..." : "logout"}

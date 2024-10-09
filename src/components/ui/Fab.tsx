@@ -9,7 +9,9 @@ type FabProps = {
 const Fab: React.FC<FabProps> = ({ href, icon }) => {
   return (
     <Link href={href}>
-      <button className={`btn btn-circle btn-primary fixed bottom-6 right-6`}>
+      <button
+        className={`btn btn-circle btn-primary fixed bottom-6 right-6 z-10`}
+      >
         <span className="absolute h-[35px] w-[35px] animate-ping rounded-full bg-primary"></span>
         {icon}
       </button>

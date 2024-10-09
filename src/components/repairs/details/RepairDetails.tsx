@@ -1,7 +1,7 @@
 "use client";
 
 import useFormattedDate from "@/hooks/useFormattedDate";
-import { useRepairs } from "@/services/queries";
+import { useRepairs } from "@/services/queries/repairQueries";
 import { useParams, useRouter } from "next/navigation";
 import DetailsLoading from "./DetailsLoading";
 import Alert from "@/components/ui/Alert";

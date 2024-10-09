@@ -1,6 +1,6 @@
 "use client";
 
-import { useRepairs } from "@/services/queries";
+import { useRepairs } from "@/services/queries/repairQueries";
 import Repair from "./Repair";
 import TableLoading from "./TableLoading";
 import Alert from "../ui/Alert";
@@ -17,7 +17,7 @@ const RepairList = () => {
   }
 
   return (
-    <div className="card card-bordered w-full max-w-screen-lg bg-base-100 shadow">
+    <div className="card card-bordered w-full max-w-screen-lg border-gray-700 bg-base-100 shadow">
       <div className="card-body">
         <table className="table">
           <thead>

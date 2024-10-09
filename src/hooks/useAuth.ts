@@ -1,4 +1,4 @@
-import { useFetchUser } from "@/services/queries";
+import { useFetchUser } from "@/services/queries/userQueries";
 import { useStore } from "@/store/store";
 import { jwtDecode } from "jwt-decode";
 import { useEffect, useMemo } from "react";

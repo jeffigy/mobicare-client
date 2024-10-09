@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchRepairs, fetchUser } from "./api";
+import { fetchRepairs } from "../api/repairApi";
 
 export function useRepairs() {
   return useQuery({
@@ -8,12 +8,5 @@ export function useRepairs() {
     refetchOnMount: false,
     refetchOnWindowFocus: false,
     refetchInterval: 30000,
-  });
-}
-
-export function useFetchUser(email: string) {
-  return useQuery({
-    queryKey: ["user"],
-    queryFn: () => fetchUser(email),
   });
 }

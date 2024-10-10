@@ -1,11 +1,11 @@
 const TableLoading = () => {
   return (
-    <div className="card card-bordered w-full max-w-screen-lg bg-base-100 shadow">
+    <div className="card card-bordered w-full max-w-screen-lg border-gray-700 bg-base-100 shadow">
       <div className="card-body">
         <table className="table">
           <thead>
             <tr>
-              <th>
+              <th className="hidden lg:table-cell">
                 {" "}
                 <div className="skeleton h-8 w-full"></div>
               </th>
@@ -14,6 +14,10 @@ const TableLoading = () => {
                 <div className="skeleton h-8 w-full"></div>
               </th>
               <th>
+                {" "}
+                <div className="skeleton h-8 w-full"></div>
+              </th>
+              <th className="hidden md:table-cell">
                 {" "}
                 <div className="skeleton h-8 w-full"></div>
               </th>
@@ -25,13 +29,16 @@ const TableLoading = () => {
                 className="hover:cursor-pointer hover:bg-base-200"
                 key={index}
               >
-                <td>
+                <td className="hidden lg:table-cell">
                   <div className="skeleton h-4 w-full"></div>
                 </td>
                 <td>
                   <div className="skeleton h-4 w-full"></div>
                 </td>
                 <td>
+                  <div className="skeleton h-4 w-full"></div>
+                </td>
+                <td className="hidden md:table-cell">
                   <div className="skeleton h-4 w-full"></div>
                 </td>
               </tr>

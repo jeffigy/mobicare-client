@@ -17,10 +17,10 @@ const Repair: React.FC<RepairProps> = ({ repair }) => {
       className="hover:cursor-pointer hover:bg-base-200"
       onClick={() => router.push(`/dashboard/repairs/${repair.id}`)}
     >
-      <td>{repair.customer.name}</td>
+      <td className="hidden lg:table-cell">{repair.customer.name}</td>
       <td>{repair.device.model}</td>
       <td>{repair.status}</td>
-      <td>{formattedDate}</td>
+      <td className="hidden md:table-cell">{formattedDate}</td>
     </tr>
   );
 };

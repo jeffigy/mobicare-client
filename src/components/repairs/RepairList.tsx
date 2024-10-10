@@ -22,10 +22,10 @@ const RepairList = () => {
         <table className="table">
           <thead>
             <tr>
-              <th>Customer Name</th>
+              <th className="hidden lg:table-cell">Customer Name</th>
               <th>Device</th>
               <th>Status</th>
-              <th>Date created</th>
+              <th className="hidden md:table-cell">Date created</th>
             </tr>
           </thead>
           <tbody>

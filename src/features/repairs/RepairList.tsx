@@ -3,7 +3,7 @@
 import { useRepairs } from "@/services/queries/repairQueries";
 import Repair from "./Repair";
 import TableLoading from "./TableLoading";
-import Alert from "../ui/Alert";
+import Alert from "../../components/ui/Alert";
 
 const RepairList = () => {
   const { data, isLoading, isError, error } = useRepairs();

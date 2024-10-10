@@ -1,4 +1,4 @@
-import FetchUser from "@/components/auth/FetchUser";
+import FetchUser from "@/features/auth/FetchUser";
 import { Metadata } from "next";
 import React from "react";
 

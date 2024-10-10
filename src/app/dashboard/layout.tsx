@@ -1,9 +1,9 @@
-import Prefetch from "@/components/auth/Prefetch";
+import Prefetch from "@/features/auth/Prefetch";
 import Navbar from "@/components/ui/Navbar";
 import dynamic from "next/dynamic";
 import React from "react";
 
-const PersistLogin = dynamic(() => import("@/components/auth/PersistLogin"), {
+const PersistLogin = dynamic(() => import("@/features/auth/PersistLogin"), {
   ssr: false,
 });
 

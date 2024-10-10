@@ -1,4 +1,4 @@
-import CreateRepairForm from "@/components/repairs/create/CreateRepairForm";
+import CreateRepairForm from "@/features/repairs/create/CreateRepairForm";
 import { Metadata } from "next";
 import React from "react";
 

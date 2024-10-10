@@ -3,7 +3,7 @@
 import useAuth from "@/hooks/useAuth";
 
 const FetchUser = () => {
-  const { user, status } = useAuth();
+  const { user, isError, error, isLoading } = useAuth();
 
   return (
     <div>

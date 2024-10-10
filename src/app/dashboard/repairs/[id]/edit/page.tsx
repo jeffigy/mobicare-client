@@ -1,6 +1,6 @@
 "use client";
 
-import EditRepairForm from "@/components/repairs/edit/EditRepairForm";
+import EditRepairForm from "@/features/repairs/edit/EditRepairForm";
 import Alert from "@/components/ui/Alert";
 import { useRepairs } from "@/services/queries/repairQueries";
 import { useParams } from "next/navigation";

@@ -1,4 +1,4 @@
-import ForgotPasswordForm from "@/components/forms/ForgotPasswordForm";
+import ForgotPasswordForm from "@/features/auth/ForgotPasswordForm";
 import { Metadata } from "next";
 import React from "react";
 

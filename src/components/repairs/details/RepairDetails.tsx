@@ -1,24 +1,13 @@
 "use client";
 
 import useFormattedDate from "@/hooks/useFormattedDate";
-import { useRepairs } from "@/services/queries/repairQueries";
-import { useParams, useRouter } from "next/navigation";
-import DetailsLoading from "./DetailsLoading";
-import Alert from "@/components/ui/Alert";
+import { RepairType } from "@/types/Repair";
 import { PencilIcon, Trash2 } from "lucide-react";
+import Link from "next/link";
 
-const RepairDetails = () => {
-  const router = useRouter();
-  const { id } = useParams();
-  const { data, isLoading, isError, error } = useRepairs();
-  const repair = data?.find((repair) => repair.id === id);
+const RepairDetails = ({ repair }: { repair: RepairType }) => {
   const createdAt = useFormattedDate(repair?.createdAt);
   const updatedAt = useFormattedDate(repair?.updatedAt);
-
-  if (isLoading) return <DetailsLoading />;
-  if (isError) return <Alert message={error.message} type="error" />;
-  if (!repair)
-    return <div className="flex justify-center">Repair not found</div>;
 
   const customerDetails = [
     { label: "Email", value: repair.customer.email },
@@ -86,20 +75,20 @@ const RepairDetails = () => {
       ))}
       <div className="mx-auto my-2 flex w-full max-w-screen-sm justify-between px-3 md:px-0">
         <div>
-          <button
+          <Link
             className="btn btn-warning"
-            onClick={() => router.push(`/dashboard/repairs/${id}/edit`)}
+            href={`/dashboard/repairs/${repair.id}/edit`}
           >
             <PencilIcon />
             <p className="hidden md:block">Edit</p>
-          </button>{" "}
-          <button
+          </Link>{" "}
+          <Link
             className="btn btn-warning"
-            onClick={() => router.push(`/dashboard/repairs/${id}/edit-status`)}
+            href={`/dashboard/repairs/${repair.id}/edit-status`}
           >
             <PencilIcon />
             <p className="hidden md:block">Edit Status</p>
-          </button>
+          </Link>
         </div>
         <button className="btn btn-error">
           <Trash2 />

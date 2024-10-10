@@ -1,9 +1,11 @@
-"use client";
-
-import PersistLogin from "@/components/auth/PersistLogin";
 import Prefetch from "@/components/auth/Prefetch";
 import Navbar from "@/components/ui/Navbar";
+import dynamic from "next/dynamic";
 import React from "react";
+
+const PersistLogin = dynamic(() => import("@/components/auth/PersistLogin"), {
+  ssr: false,
+});
 
 type layoutProps = {
   children: React.ReactNode;

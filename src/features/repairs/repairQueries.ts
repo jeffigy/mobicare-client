@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchRepairs } from "../api/repairApi";
+import { fetchRepairs } from "./repairApi";
 
 export function useRepairs() {
   return useQuery({

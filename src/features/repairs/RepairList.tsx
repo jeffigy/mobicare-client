@@ -1,6 +1,6 @@
 "use client";
 
-import { useRepairs } from "@/services/queries/repairQueries";
+import { useRepairs } from "@/features/repairs/repairQueries";
 import Repair from "./Repair";
 import TableLoading from "./TableLoading";
 import Alert from "../../components/ui/Alert";

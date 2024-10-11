@@ -6,7 +6,7 @@ import {
   deviceTypeData,
   statusData,
 } from "@/lib/repairFormData";
-import { useAddNewRepairMutation } from "@/services/mutations/repairMutations";
+import { useAddNewRepairMutation } from "@/features/repairs/repairMutations";
 import { AxiosApiResponse } from "@/types/ServerResponse";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";

@@ -1,6 +1,6 @@
 "use client";
 
-import { fetchRepairs } from "@/services/api/repairApi";
+import { fetchRepairs } from "@/features/repairs/repairApi";
 import { queryClient } from "@/store/provider";
 import { useEffect } from "react";
 

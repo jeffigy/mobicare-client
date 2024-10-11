@@ -1,7 +1,7 @@
 "use client";
 
 import RepairDetails from "@/features/repairs/details/RepairDetails";
-import { useRepairs } from "@/services/queries/repairQueries";
+import { useRepairs } from "@/features/repairs/repairQueries";
 import { useParams } from "next/navigation";
 import Alert from "@/components/ui/Alert";
 import DetailsLoading from "@/features/repairs/details/DetailsLoading";

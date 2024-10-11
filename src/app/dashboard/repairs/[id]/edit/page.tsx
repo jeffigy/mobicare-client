@@ -2,7 +2,7 @@
 
 import EditRepairForm from "@/features/repairs/edit/EditRepairForm";
 import Alert from "@/components/ui/Alert";
-import { useRepairs } from "@/services/queries/repairQueries";
+import { useRepairs } from "@/features/repairs/repairQueries";
 import { useParams } from "next/navigation";
 import React from "react";
 

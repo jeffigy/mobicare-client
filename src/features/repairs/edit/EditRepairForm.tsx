@@ -6,7 +6,7 @@ import {
   deviceTypeData,
   statusData,
 } from "@/lib/repairFormData";
-import { useEditRepairMutation } from "@/services/mutations/repairMutations";
+import { useEditRepairMutation } from "@/features/repairs/repairMutations";
 import { RepairType } from "@/types/Repair";
 import { AxiosApiResponse } from "@/types/ServerResponse";
 import { useRouter } from "next/navigation";

@@ -74,22 +74,13 @@ const RepairDetails = ({ repair }: { repair: RepairType }) => {
         />
       ))}
       <div className="mx-auto my-2 flex w-full max-w-screen-sm justify-between px-3 md:px-0">
-        <div>
-          <Link
-            className="btn btn-warning"
-            href={`/dashboard/repairs/${repair.id}/edit`}
-          >
-            <PencilIcon />
-            <p className="hidden md:block">Edit</p>
-          </Link>{" "}
-          <Link
-            className="btn btn-warning"
-            href={`/dashboard/repairs/${repair.id}/edit-status`}
-          >
-            <PencilIcon />
-            <p className="hidden md:block">Edit Status</p>
-          </Link>
-        </div>
+        <Link
+          className="btn btn-warning"
+          href={`/dashboard/repairs/${repair.id}/edit`}
+        >
+          <PencilIcon />
+          <p className="hidden md:block">Edit</p>
+        </Link>
         <button className="btn btn-error">
           <Trash2 />
           <p className="hidden md:block">Delete</p>

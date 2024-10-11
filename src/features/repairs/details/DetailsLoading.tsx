@@ -24,14 +24,9 @@ const DetailsLoading = () => {
         <DetailRow key={index} />
       ))}
       <div className="mx-auto my-2 flex w-full max-w-screen-sm justify-between px-3 md:px-0">
-        <div>
-          <button className="btn btn-warning">
-            <span className="loading loading-spinner"></span>
-          </button>{" "}
-          <button className="btn btn-warning">
-            <span className="loading loading-spinner"></span>
-          </button>
-        </div>
+        <button className="btn btn-warning">
+          <span className="loading loading-spinner"></span>
+        </button>
         <button className="btn btn-error">
           <span className="loading loading-spinner"></span>
         </button>

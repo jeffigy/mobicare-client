@@ -1,6 +1,6 @@
 const DetailsLoading = () => {
   return (
-    <div className="w-full max-w-screen-md border border-gray-700">
+    <div className="mx-auto w-full max-w-screen-md border border-gray-700">
       <DetailHeader name="Customer" />
       {[1, 2, 3].map((_, index) => (
         <DetailRow key={index} />

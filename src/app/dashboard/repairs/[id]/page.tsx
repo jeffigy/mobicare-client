@@ -15,11 +15,7 @@ const Page = () => {
   if (isError) return <Alert message={error.message} type="error" />;
   if (!repair) return <Alert message={"Repair not found"} type="error" />;
 
-  return (
-    <div className="flex w-full justify-center">
-      <RepairDetails repair={repair} />
-    </div>
-  );
+  return <RepairDetails repair={repair} />;
 };
 
 export default Page;

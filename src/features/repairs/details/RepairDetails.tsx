@@ -34,7 +34,7 @@ const RepairDetails = ({ repair }: { repair: RepairType }) => {
   ];
 
   return (
-    <div className="w-full max-w-screen-md border border-gray-700">
+    <div className="mx-auto w-full max-w-screen-md border border-gray-700">
       <DetailHeader name="Customer" />
       {customerDetails.map((detail) => (
         <DetailRow

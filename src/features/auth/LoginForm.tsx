@@ -1,7 +1,7 @@
 "use client";
 
 import usePersist from "@/hooks/usePersist";
-import { useLoginMutation } from "@/services/mutations/authMutations";
+import { useLoginMutation } from "@/features/auth/authMutations";
 import { AxiosApiResponse } from "@/types/ServerResponse";
 import Link from "next/link";
 import { useRouter } from "next/navigation";

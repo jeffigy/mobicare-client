@@ -1,7 +1,7 @@
 "use client";
 
 import useAuth from "@/hooks/useAuth";
-import { useLogoutMutation } from "@/services/mutations/authMutations";
+import { useLogoutMutation } from "@/features/auth/authMutations";
 import {
   ChevronDown,
   ClipboardCheck,

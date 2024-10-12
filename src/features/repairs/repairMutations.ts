@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { AddNewRepair, EditRepair } from "./repairApi";
+import { AddNewRepair, deleteRepair, EditRepair } from "./repairApi";
 import { RepairFormType } from "@/types/Repair";
 
 export function useAddNewRepairMutation() {
@@ -24,6 +24,16 @@ export function useEditRepairMutation() {
         queryKey: ["repairs"],
         type: "active",
       });
+    },
+  });
+}
+
+export function useDeleteRepairMutation() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (id: string) => deleteRepair(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["repairs"] });
     },
   });
 }

@@ -62,7 +62,9 @@ const EditRepairForm = ({ repair }: { repair: RepairType }) => {
 
   useEffect(() => {
     if (isError) {
-      toast.error((error as AxiosApiResponse).response?.data.message);
+      toast.error("Error", {
+        description: (error as AxiosApiResponse).response?.data.message,
+      });
     }
   }, [isError, error]);
 

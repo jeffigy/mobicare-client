@@ -2,8 +2,9 @@
 
 import useFormattedDate from "@/hooks/useFormattedDate";
 import { RepairType } from "@/types/Repair";
-import { PencilIcon, Trash2 } from "lucide-react";
+import { PencilIcon } from "lucide-react";
 import Link from "next/link";
+import DeleteRepairModal from "../delete/DeleteRepairModal";
 
 const RepairDetails = ({ repair }: { repair: RepairType }) => {
   const createdAt = useFormattedDate(repair?.createdAt);
@@ -81,10 +82,7 @@ const RepairDetails = ({ repair }: { repair: RepairType }) => {
           <PencilIcon />
           <p className="hidden md:block">Edit</p>
         </Link>
-        <button className="btn btn-error">
-          <Trash2 />
-          <p className="hidden md:block">Delete</p>
-        </button>
+        <DeleteRepairModal repair={repair} />
       </div>
     </div>
   );

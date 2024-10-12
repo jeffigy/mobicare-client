@@ -12,3 +12,7 @@ export const AddNewRepair = async (data: RepairFormType) => {
 export const EditRepair = async (data: RepairFormType) => {
   return (await axiosInstance.patch("/repairs", data)).data;
 };
+
+export const deleteRepair = async (id: string) => {
+  return (await axiosInstance.delete(`/repairs/${id}`)).data;
+};

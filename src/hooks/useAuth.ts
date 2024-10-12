@@ -1,4 +1,4 @@
-import { useFetchUser } from "@/features/users/userQueries";
+import { useFetchUserProfile } from "@/features/auth/authQueries";
 import { useStore } from "@/store/store";
 import { jwtDecode } from "jwt-decode";
 import { useEffect, useMemo } from "react";
@@ -22,7 +22,7 @@ const useAuth = () => {
   }, [token]);
 
   // Fetch user data only if the email is available
-  const { data, isSuccess, isError, isLoading, error } = useFetchUser(
+  const { data, isSuccess, isError, isLoading, error } = useFetchUserProfile(
     email ?? "",
   );
 

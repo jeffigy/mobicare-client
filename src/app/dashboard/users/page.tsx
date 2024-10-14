@@ -1,12 +1,16 @@
-import { Metadata } from "next";
-import React from "react";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Users",
-};
+import Fab from "@/components/ui/Fab";
+import UsersList from "@/features/users/UsersList";
+import { UserPlus2 } from "lucide-react";
 
 const Page = () => {
-  return <div>users</div>;
+  return (
+    <div className="flex w-full justify-center">
+      <Fab icon={<UserPlus2 />} href="/dashboard/users/new" />
+      <UsersList />
+    </div>
+  );
 };
 
 export default Page;

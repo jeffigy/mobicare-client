@@ -8,3 +8,7 @@ export const fetchUsers = async () => {
 export const addNewUser = async (data: UserFormType) => {
   return (await axiosInstance.post("/users", data)).data;
 };
+
+export const editUser = async (data: UserFormType) => {
+  return (await axiosInstance.patch("/users", data)).data;
+};

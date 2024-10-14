@@ -7,6 +7,7 @@ import Alert from "@/components/ui/Alert";
 import { PencilIcon, Trash2 } from "lucide-react";
 import UserDetailsLoading from "./UserDetailsLoading";
 import Link from "next/link";
+import DeleteUserModal from "../delete/DeleteUserModal";
 
 const UserDetails = () => {
   const { id } = useParams();
@@ -33,10 +34,7 @@ const UserDetails = () => {
           >
             <PencilIcon /> Edit
           </Link>
-          <button className="btn btn-neutral border-none">
-            {" "}
-            <Trash2 />
-          </button>
+          <DeleteUserModal user={user} />
         </div>
         <UserDetail showDivider={true} label="Email" value={user.email} />
         <UserDetail

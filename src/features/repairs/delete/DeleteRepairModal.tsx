@@ -47,7 +47,7 @@ const DeleteRepairModal = ({ repair }: { repair: RepairType }) => {
   return (
     <>
       <button
-        className="btn btn-outline btn-error"
+        className="btn btn-outline btn-error border-none"
         onClick={() => setShowModal(true)}
       >
         <Trash2Icon /> Delete
@@ -58,8 +58,11 @@ const DeleteRepairModal = ({ repair }: { repair: RepairType }) => {
         title="Delete Repair"
       >
         <p>are you sure on deleting the repair with the following details?</p>
-        <div className="modal-action">
-          <button className="btn btn-outline btn-error" onClick={handleDelete}>
+        <div className="card-actions justify-end">
+          <button
+            className="btn btn-outline btn-error border-none"
+            onClick={handleDelete}
+          >
             {isPending ? (
               <>
                 <span className="loading loading-spinner"></span> Deleting...

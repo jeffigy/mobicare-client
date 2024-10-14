@@ -27,7 +27,7 @@ const DetailsLoading = () => {
         <button className="btn btn-warning">
           <span className="loading loading-spinner"></span>
         </button>
-        <button className="btn btn-error">
+        <button className="btn btn-outline btn-error border-none">
           <span className="loading loading-spinner"></span>
         </button>
       </div>

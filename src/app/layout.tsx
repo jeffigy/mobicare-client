@@ -22,7 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body data-theme="night" className={`${inter.className} min-h-screen`}>
+      <body
+        data-theme="night"
+        className={`${inter.className} min-h-screen bg-base-300`}
+      >
         <Provider>
           <ToastProvider>{children}</ToastProvider>
         </Provider>
